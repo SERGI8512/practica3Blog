@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../interface/post.interface';
+import { ServiciosService } from '../servicios.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  posts: Post[];
+  categorias: string[];
+
+  constructor(private serviciosService: ServiciosService) {
+    this.posts = [];
+  }
 
   ngOnInit(): void {
+    this.posts = this.serviciosService.getAllPosts()
+  }
+
+  onChange($event: any) {
+
+    if ($event.target.value === 'todas') {
+      this.posts = this.serviciosService.getAllPosts();
+    } else {
+      this.posts = this.serviciosService.getPostsByCategory($event.target.value);
+    }
+
   }
 
 }
