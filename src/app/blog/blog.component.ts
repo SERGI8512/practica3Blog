@@ -13,7 +13,7 @@ export class BlogComponent implements OnInit {
   categorias: string[];
 
   constructor(private serviciosService: ServiciosService) {
-    this.posts = [];
+    this.posts = JSON.parse(localStorage.getItem('listaAnimales'));
   }
 
   ngOnInit(): void {

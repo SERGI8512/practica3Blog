@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../interface/post.interface';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiciosService } from '../servicios.service';
 
 @Component({
@@ -9,24 +10,25 @@ import { ServiciosService } from '../servicios.service';
 })
 export class FormularioComponent implements OnInit {
 
-  newPosts: Post;
+  newPosts: FormGroup;
 
   constructor(private serviciosService: ServiciosService) {
-    this.newPosts = {
-      titulo: '',
-      texto: '',
-      autor: '',
-      imagen: '',
-      fecha: '',
-      categoria: ''
-    };
+    this.newPosts = new FormGroup({
+      titulo: new FormControl(''),
+      texto: new FormControl(''),
+      autor: new FormControl(''),
+      imagen: new FormControl(''),
+      fecha: new FormControl(''),
+      categoria: new FormControl('')
+    });
   }
 
   ngOnInit(): void {
   }
 
-  /*  onClick(pNewPost) {
-     this.newPosts = this.serviciosService.addPosts(pNewPost)
-   } */
+  onSubmit(): void {
+    let newArray = this.serviciosService.addPosts(this.newPosts.value)
+    console.log(newArray)
+  }
 
 }

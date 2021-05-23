@@ -1,11 +1,12 @@
-<form>
+<form [formGroup]="newPosts" (ngSubmit)="onSubmit()">
     <label>
-        <input type="text" placeholder="titulo">
-        <input type="text" placeholder="texto">
-        <input type="text" placeholder="autor">
-        <input type="text" placeholder="imagen">
-        <input type="date" placeholder="fecha">
-        <input type="text" placeholder="categoria">
+        <input formControlName="titulo" type="text" placeholder="titulo">
+        <input formControlName="texto" type="text" placeholder="texto">
+        <input formControlName="autor" type="text" placeholder="autor">
+        <input formControlName="imagen" type="text" placeholder="imagen">
+        <input formControlName="fecha" type="date" placeholder="fecha">
+        <input formControlName="categoria" type="text" placeholder="categoria">
     </label>
-    <!--  <button (click)="onClick(newPosts)">Enviar Post</button> -->
+    <button type="submit">Enviar Post</button>
 </form>
+{{newPosts.value | json}}

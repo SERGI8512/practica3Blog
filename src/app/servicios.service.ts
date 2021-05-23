@@ -8,7 +8,14 @@ export class ServiciosService {
 
   private arrPosts: Post[];
 
+  todosPosts: Post[];
+
+
   constructor() {
+
+    this.todosPosts = [];
+
+
     this.arrPosts = [
       {
         titulo: 'Post 1',
@@ -38,16 +45,22 @@ export class ServiciosService {
   }
 
   addPosts(pNewPost: Post) {
-    this.arrPosts.push(pNewPost);
+    this.todosPosts = this.arrPosts;
+    this.todosPosts.push(pNewPost);
+    localStorage.setItem('listaPost', JSON.stringify(this.todosPosts));
+    console.log(this.todosPosts);
+
+    return this.todosPosts;
   }
 
   getAllPosts() {
-    return this.arrPosts;
+
+    return this.arrPosts = JSON.parse(localStorage.getItem('listaPost'))
   }
 
   getPostsByCategory(pCategory: string): Post[] {
+    this.arrPosts = JSON.parse(localStorage.getItem('listaPost'))
     return this.arrPosts.filter(post => post.categoria === pCategory);
-
   }
 
 }
