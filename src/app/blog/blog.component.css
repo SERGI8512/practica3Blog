@@ -1,0 +1,40 @@
+.selection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.selector{
+    padding: 10px;
+    border-radius: 5%;
+    border: 5px solid blue;
+}
+
+.blogs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.blog{
+    border: 5px solid blue;
+    text-align: center;
+    width: 250px;
+    height: auto;
+    margin: 10px;
+    border-radius: 5%;
+}
+
+.button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btnNew{
+    justify-content: center;
+    padding: 20px;
+}
+

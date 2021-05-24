@@ -26,6 +26,9 @@ export class BlogComponent implements OnInit {
     } else {
       this.posts = this.serviciosService.getPostsByCategory($event.target.value);
     }
+  }
+
+  addnewPost() {
 
   }
 

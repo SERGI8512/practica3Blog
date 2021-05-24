@@ -1,12 +1,27 @@
-<form [formGroup]="newPosts" (ngSubmit)="onSubmit()">
-    <label>
-        <input formControlName="titulo" type="text" placeholder="titulo">
-        <input formControlName="texto" type="text" placeholder="texto">
-        <input formControlName="autor" type="text" placeholder="autor">
-        <input formControlName="imagen" type="text" placeholder="imagen">
-        <input formControlName="fecha" type="date" placeholder="fecha">
-        <input formControlName="categoria" type="text" placeholder="categoria">
-    </label>
+<h1 class="h1">Añadir un Post</h1>
+
+<div class="formulario">
+    <form class="newForm" [formGroup]="newPosts" (ngSubmit)="onSubmit()">
+        <label>
+            <input formControlName="titulo" type="text" placeholder="titulo">
+        </label>
+        <label>
+            <input formControlName="texto" type="text" placeholder="texto">
+        </label>
+        <label>
+            <input formControlName="autor" type="text" placeholder="autor">
+        </label>
+        <label>
+            <input formControlName="imagen" type="text" placeholder="imagen">
+        </label>
+        <label>
+            <input formControlName="fecha" type="date" placeholder="fecha">
+        </label>
+        <label>
+            <input formControlName="categoria" type="text" placeholder="categoria">
+        </label>
+    </form>
+</div>
+<div class="btn">
     <button type="submit">Enviar Post</button>
-</form>
-{{newPosts.value | json}}
+</div>

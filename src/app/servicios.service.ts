@@ -15,7 +15,6 @@ export class ServiciosService {
 
     this.todosPosts = [];
 
-
     this.arrPosts = [
       {
         titulo: 'Post 1',
@@ -45,7 +44,7 @@ export class ServiciosService {
   }
 
   addPosts(pNewPost: Post) {
-    this.todosPosts = this.arrPosts;
+    this.todosPosts = JSON.parse(localStorage.getItem('listaPost'));
     this.todosPosts.push(pNewPost);
     localStorage.setItem('listaPost', JSON.stringify(this.todosPosts));
     console.log(this.todosPosts);
@@ -55,7 +54,11 @@ export class ServiciosService {
 
   getAllPosts() {
 
-    return this.arrPosts = JSON.parse(localStorage.getItem('listaPost'))
+    if (this.todosPosts = []) {
+      return this.arrPosts
+    } else {
+      return this.arrPosts = JSON.parse(localStorage.getItem('listaPost'))
+    }
   }
 
   getPostsByCategory(pCategory: string): Post[] {
